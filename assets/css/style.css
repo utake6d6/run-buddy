@@ -22,6 +22,9 @@ body {
 
 /* apply styles to <header> */
 header {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display:flex;
   padding: 20px 35px;
   background-color: #39a6b2;
 }
@@ -29,9 +32,9 @@ header {
 /* more specific selector pattern */
 header h1 {
   font-weight: bold;
+  margin: 0;
   font-size: 36px;
   color: #fce138;
-  margin: 0;
 }
 
 /* styling all elements inside header */
@@ -42,7 +45,6 @@ header a {
 
 /* nav element moved to the far right */
 header nav {
-  float: right;
   margin: 7px 0;
 }
 
