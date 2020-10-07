@@ -98,30 +98,6 @@ header h1 {
   display: inline;
 }
 
-footer {
-  background: var(--primary-color);
-  width: 100%;
-  padding: 40px 35px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-footer h2 {
-  color: var(--secondary-color);
-  font-size: 30px;
-  margin: 0;
-}
-
-footer div {
-  line-height: 1.5;
-  text-align: right;
-}
-
-footer a {
-  color: var(--secondary-color);
-}
-
 /* Hero Style Start */
 .hero {
   background-image: url("../images/hero-bg.jpg");
@@ -371,7 +347,6 @@ footer a {
 /* trainer section end */
 
 /* service grid style start */
-
 .service-grid-container {
   background: lightyellow;
   width: 80%;
@@ -423,6 +398,7 @@ footer a {
   font-size: 1.5rem;
   font-weight: bold;
 }
+/* service grid end */
 
 /* reach out style start */
 .contact {
@@ -502,6 +478,32 @@ footer a {
   background: var(--tertiary-color);
 }
 /* reach out style end */
+
+/* footer styles start */
+footer {
+  background: var(--primary-color);
+  width: 100%;
+  padding: 40px 35px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer h2 {
+  color: var(--secondary-color);
+  font-size: 30px;
+  margin: 0;
+}
+
+footer div {
+  line-height: 1.5;
+  text-align: right;
+}
+
+footer a {
+  color: var(--secondary-color);
+}
+/* footer styles end */
 
 .text-left {
   text-align: left;
