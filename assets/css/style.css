@@ -11,12 +11,6 @@
   --tertiary-color: #39a6b2;
 }
 
-  /* color and font */
-body {
-  color: var(--tertiary-color);
-  font-family: Helvetica, Arial, sans-serif;
-}
-
 .section-title {
   font-size: 48px;
   color: var(--secondary-color);
@@ -54,9 +48,10 @@ header a {
 /* more specific selector pattern */
 header h1 {
   font-weight: bold;
-  margin: 0;
   font-size: 36px;
   color: var(--primary-color);
+  margin: 0;
+  display: inline;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
 }
 
@@ -89,13 +84,14 @@ header nav ul li a:hover {
   text-shadow: none;
 }
 
-/* adding another style to an existing style (IS THIS NEEDED?)*/
-header h1 {
-  font-weight: bold;
-  font-size: 36px;
-  color: var(--primary-color);
-  margin: 0;
-  display: inline;
+/* color and font */
+body {
+  color: var(--tertiary-color);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+section {
+    padding: 60px;
 }
 
 /* Hero Style Start */
@@ -107,6 +103,8 @@ header h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-attachment: fixed;
+  background-position: 80%;
 }
 
 .hero-cta {
@@ -127,12 +125,12 @@ header h1 {
 
 .hero-form {
   border: 3px solid var(--secondary-color);
-  border-radius: 15px;
   background-color: rgba(252, 225, 56, 0.8);
   color: var(--secondary-color);
   padding: 20px;
   width: 40%;
   margin: 3.5%;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -147,13 +145,13 @@ header h1 {
 
 .form-input {
   border: 1px solid var(--secondary-color);
-  border-radius: 10px;
   display: block;
   padding: 7px 15px;
   font-size: 16px;
   color: var(--secondary-color);
   width: 100%;
   margin-bottom:15px;
+  border-radius: 10px;
   background-color: rgba(255,255,255, 0.75);
 }
 
@@ -189,7 +187,6 @@ header h1 {
 }
 
 .radio-wrapper label::after {
-  background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
   content: "";
   width: 20px;
   height: 20px;
@@ -198,6 +195,7 @@ header h1 {
   position: absolute;
   left: -29px;
   top: -3px;
+  /*   background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color)); */
 }
 
 .checkbox-wrapper label::after {
@@ -210,6 +208,14 @@ header h1 {
   position: absolute;
   left: -26px;
   top: 1px;
+}
+
+.checkbox-wrapper input + label::after, .radio-wrapper input + label::after { 
+    content: none;
+}
+
+.checkbox-wrapper input:checked + label::after, .radio-wrapper input:checked + label::after {
+    content: "";
 }
 
 .hero-form label {
@@ -265,6 +271,7 @@ header h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--tertiary-color);
 }
 
 .step:last-child {
@@ -307,14 +314,6 @@ header h1 {
 /* steps section end */
 
 /* trainer section start */
-.trainers {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
 .trainer {
   flex: 1;
   margin: 20px;
@@ -322,8 +321,59 @@ header h1 {
   color: var(--primary-color);
 }
 
-.trainer img {
+.trainer-img {
+  position: relative;
   width: 100%;
+  min-height: 300px;
+  background-size: cover;
+  display: flex;
+  padding: 15px;
+  align-items: flex-end;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.trainer-img::after {
+  content: "";
+  height: 100%;
+  width: 100%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.5s;
+  background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.trainer:hover::after {
+    background-image: linear-gradient(to bottom, rgb(167, 153, 64, 0.5), rgba(1, 31, 47, 0.5)); 
+}
+
+.trainer-1:hover::after, .trainer-2:hover::after, .trainer-3:hover::after { 
+    opacity: .7;  /* directions say opacity 1 but .7 seems a little better */ 
+    transition: 0.5s;
+    background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));  
+} 
+
+.trainer:hover .trainer-img h3, .trainer:hover .trainer-img h4 {
+    top: 0;
+}
+
+.trainer-img h3 {
+  position: relative; 
+    z-index: 1;
+    top: 200px; /* moves to bottom of card until mouse over */
+    transition: 0.6s;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.trainer-img h4 {
+  position: relative;  
+    z-index: 1;
+    font-size: 22px; 
+    top: 200px;  /* moves to bottom of card until mouse over */
+    transition: 0.6s;
 }
 
 .trainer-bio {
@@ -333,16 +383,38 @@ header h1 {
 
 .trainer-bio h3 {
   font-size: 28px;
+  display: none;
 }
 
 .trainer-bio h4 {
   font-weight: lighter;
   font-size: 22px;
   margin-bottom: 15px;
+  display: none;
 }
 
 .trainer-bio p {
   font-size: 17px;
+}
+
+.trainers {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.trainer-1 {
+  background-image: url("../images/trainer-1.jpg");
+}
+
+.trainer-2 {
+  background-image: url("../images/trainer-2.jpg");
+}
+
+.trainer-3 {
+  background-image: url("../images/trainer-3.jpg");
 }
 /* trainer section end */
 
