@@ -526,7 +526,6 @@ footer a {
   header h1 {
     width: 100%;
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
   header nav ul {
@@ -537,7 +536,6 @@ footer a {
 
   header nav ul li a {
     font-size: 20px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
   footer h2, footer div {
