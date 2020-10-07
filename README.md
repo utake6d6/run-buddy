@@ -8,7 +8,7 @@ A website that offers fitness training services.
 * CSS
 
 ## Website
-https://utake6d6.github.io/run-buddy/
+<a href="https://utake6d6.github.io/run-buddy/" target="_blank">https://utake6d6.github.io/run-buddy/</a>
 
 ## Contribution
 Made with ❤️ by Bert Gill
